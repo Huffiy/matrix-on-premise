@@ -32,11 +32,11 @@ This doc is the minimal and most straightforward approach that I could get to se
 
 1. Create A or AAA DNS Records pointing to the Server Public IP
     1. m.example.com -> for the synapse matrix and admin WebUI
-    1. e.example.com -> for element WebUI  
+    1. e.example.com -> for element WebUI
 
 1. Configure NGINX with the sample config `matrix.config` file, which can be found here
     1. Replace example.com
-    1. Copy your SSL Certificates in the given path or use Certbot to generate certs  
+    1. Copy your SSL Certificates in the given path or use Certbot to generate certs
 
 1. Restart NGINX
 
@@ -88,8 +88,8 @@ This doc is the minimal and most straightforward approach that I could get to se
         matrixdotorg/synapse:latest generate
     ```
 
-1. As its common that your client are behind NATed network traffic you may need to add TRUN service to your setup for reliable VoIP connections.  
-Note: This is required only for mobile devices (iOS and Android), The Element Web UI is using WebRTC which enables port punching though NAT network without TRUN.  
+1. As its common that your client are behind NATed network traffic you may need to add TRUN service to your setup for reliable VoIP connections.
+Note: This is required only for mobile devices (iOS and Android), The Element Web UI is using WebRTC which enables port punching though NAT network without TRUN.
 Update the `coturn\turnserver.config` file:
     1. Update the password `SOMESECURETEXT`
     1. Add the Server Public IP at the last line
@@ -116,12 +116,12 @@ Update the `coturn\turnserver.config` file:
     ```
 
 1. Create an Admin User
-    1. Access docker shell  
-    `sudo docker compose exec -it synapse bash`
-    1. run command  
+    1. Access docker shell
+    `sudo docker compose exec -it <CONTAINER_ID> bash`
+    1. run command
     `register_new_matrix_user -c /data/homeserver.yaml http://localhost:8008`
     1. Follow the on screen prompts
-    1. Enter exit to leave the container's shell with  
+    1. Enter exit to leave the container's shell with
     `exit`
 
 1. If you need to allow users to register without any verification and the following line to `homeserver.yml` and restart the synapse container
@@ -138,9 +138,9 @@ Update the `coturn\turnserver.config` file:
 
 1. Thats it, all done. you can create users with the admin web ui and download the client App from:
 
-    1. iOS: <https://apps.apple.com/us/app/element-messenger/id1083446067>  
-    1. Android: <https://play.google.com/store/apps/details?id=im.vector.app&hl=en&gl=US>  
-    1. Android (Cafe Bazar): <https://cafebazaar.ir/app/im.vector.app>  
+    1. iOS: <https://apps.apple.com/us/app/element-messenger/id1083446067>
+    1. Android: <https://play.google.com/store/apps/details?id=im.vector.app&hl=en&gl=US>
+    1. Android (Cafe Bazar): <https://cafebazaar.ir/app/im.vector.app>
 
 ## Further reading and references
 
